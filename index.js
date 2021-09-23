@@ -6,7 +6,13 @@ import {renderDOM, renderView} from './views/render';
 import './index.css';
 import * as backend from './build/index.main.mjs';
 import {loadStdlib} from '@reach-sh/stdlib';
-const reach = loadStdlib(process.env);
+import MyAlgoConnect from '@reach-sh/stdlib/ALGO_MyAlgoConnect';
+const reach = loadStdlib(process.env);  
+
+reach.setWalletFallback(reach.walletFallback({
+  providerEnv: 'TestNet', MyAlgoConnect }));
+
+
 
 const handToInt = {'ROCK': 0, 'PAPER': 1, 'SCISSORS': 2};
 const intToOutcome = ['Bob wins!', 'Draw!', 'Alice wins!'];
